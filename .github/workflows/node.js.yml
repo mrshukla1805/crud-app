@@ -8,6 +8,7 @@ env:
   GITHUB_PR_NUMBER: ${{github.event.pull_request.number}}
   REPO_URL: ${{ github.server_url }}/${{ github.repository }}
   API_KEY: ${{ secrets.CDAPI }}
+  API_KEY_ON_PREM: ${{ secrets.CDONPREM }}
 
 jobs:
   pre-build:
@@ -15,8 +16,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: scan code for vulnerabilitii
+      - name: scan code for vulnerabilitiiii
         run: |
-          export SCAN_URL="https://cdefense.clouddefenseai.com/"
           curl -L https://github.com/CloudDefenseAI/cd/releases/download/1.38.4/cd-latest-linux-x64.tar.gz > /tmp/cd-latest-linux-x64.tar.gz && tar -C /usr/local/bin -xzf /tmp/cd-latest-linux-x64.tar.gz && chmod +x /usr/local/bin/cd-latest-linux-x64
-          cd-latest-linux-x64 online --api-key=$API_KEY --repository-url="$REPO_URL" --pr-id="$GITHUB_PR_NUMBER" --type=GITHUB
+          cd-latest-linux-x64 full --api-key=$API_KEY_ON_PREM --project-name=pythontest1 --repo-url='https://github.com/ScaleSec/vulnado.git' --branch=master --no-s3 --is-from-cli=true
