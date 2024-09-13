@@ -16,7 +16,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: scan code for vulnerabilitiiii
+      - name: scan code for vulnerabilitiiiiiiiiiiiiiiii
         run: |
           curl -L https://github.com/CloudDefenseAI/cd/releases/download/1.38.4/cd-latest-linux-x64.tar.gz > /tmp/cd-latest-linux-x64.tar.gz && tar -C /usr/local/bin -xzf /tmp/cd-latest-linux-x64.tar.gz && chmod +x /usr/local/bin/cd-latest-linux-x64
           cd-latest-linux-x64 full --api-key=$API_KEY_ON_PREM --project-name=pythontest1 --repo-url='https://github.com/ScaleSec/vulnado.git' --branch=master --no-s3 --is-from-cli=true
