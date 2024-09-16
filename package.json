@@ -10,7 +10,7 @@
   "dependencies": {
     "@mrshukla1805/jsproject": "^1.0.0",
     "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.3.0"
+    "react": "^18.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
